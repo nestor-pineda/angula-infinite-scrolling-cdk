@@ -1,4 +1,4 @@
-<div
+<!-- <div
   class="search-results-container"
   infinite-scroll
   [scrollWindow]="true"
@@ -14,4 +14,19 @@
       <p class="mb-1">{{ i }} Item added on {{ direction }}</p>
     </a>
   </div>
-</div>
+</div> -->
+
+<cdk-virtual-scroll-viewport itemSize="100">
+  <li
+    *cdkVirtualFor="let p of dummydata"
+    class="animated lightSpeedIn item-wrap"
+  >
+    <div class="thumbnail-wrap">
+      <img src="{{ p.avatar }}" />
+    </div>
+    <div class="info-wrap">
+      <h4>{{ p.name }}</h4>
+      <h6>{{ p.company }}</h6>
+    </div>
+  </li>
+</cdk-virtual-scroll-viewport>

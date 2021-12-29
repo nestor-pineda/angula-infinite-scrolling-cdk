@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import * as faker from 'faker';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  title = 'Ng7InfiniteVirtualScroll';
+  dummydata;
+  constructor() {
+    this.dummydata = Array(10000)
+      .fill(1)
+      .map((_) => {
+        return {
+          name: faker.name.findName(),
+          company: faker.company.companyName(),
+          avatar: faker.image.avatar(),
+        };
+      });
+  }
+}
+
+/* export class AppComponent {
   listArray: string[] = [];
   sum = 40;
   direction = '';
@@ -48,4 +65,4 @@ export class AppComponent {
       }
     }
   }
-}
+} */
